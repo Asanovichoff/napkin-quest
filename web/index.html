@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Napkin Quest</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Crect x='10' y='10' width='100' height='72' rx='12' fill='white' stroke='%2317162b' stroke-width='8'/%3E%3Cpath d='M14 16 L60 50 L106 16' fill='none' stroke='%2317162b' stroke-width='7'/%3E%3Ccircle cx='44' cy='58' r='6' fill='%2317162b'/%3E%3Ccircle cx='76' cy='58' r='6' fill='%2317162b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header class="bar">
+  <a class="logo" href="#map" aria-label="Napkin Quest home"><span id="logoPenny"></span><b>Napkin Quest</b></a>
+  <button class="player" id="playerBtn" type="button" aria-label="Your rank and badges">
+    <span class="lvl" id="lvl">1</span>
+    <span class="player-text"><b id="rankName">Intern</b><span class="xpbar"><i id="xpFill"></i></span><small id="xpText">0 XP</small></span>
+  </button>
+</header>
+
+<main id="app" class="wrap" aria-live="polite"><p class="loading">Unfolding the napkin…</p></main>
+
+<div class="tools" id="tools" hidden>
+  <button class="fab" id="calcFab" type="button" aria-expanded="false" aria-controls="calcPanel">Napkin calc</button>
+  <button class="fab" id="guideFab" type="button" aria-expanded="false" aria-controls="guidePanel">Pocket guide</button>
+</div>
+<section class="panel" id="calcPanel" hidden aria-label="Napkin calculator">
+  <div class="panel-head"><h2>Napkin calc</h2><button class="x" data-close="calcPanel" type="button" aria-label="Close">×</button></div>
+  <div class="napkin"><textarea id="scratch" wrap="off" spellcheck="false" placeholder="5M * 20 / day&#10;2.5K * 50kb * 8&#10;3 * 365 * 4tb"></textarea><div class="gutter" id="gutter" aria-hidden="true"></div></div>
+  <p class="small">Each line is calculated as you type. Understands k, M, B, T, plus <code>day</code> <code>hour</code> <code>month</code> <code>year</code> <code>gb</code> <code>tb</code>.</p>
+  <button class="link" id="clearScratch" type="button">Clear napkin</button>
+</section>
+<section class="panel" id="guidePanel" hidden aria-label="Pocket guide"><div class="panel-head"><h2>Pocket guide</h2><button class="x" data-close="guidePanel" type="button" aria-label="Close">×</button></div><div id="guide"></div></section>
+
+<dialog id="badges" aria-label="Badges"><div class="dialog-body" id="badgesBody"></div></dialog>
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<footer class="foot wrap" id="foot"></footer>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
